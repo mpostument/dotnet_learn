@@ -1,0 +1,13 @@
+﻿using HomeWorkList;
+
+var mpList = new MPList();
+mpList.AddItem(100);
+mpList.AddItem(200);
+mpList.DeleteItem(0);
+var i = mpList.GetItem(0);
+Console.WriteLine(i);
+mpList.AddItem(300);
+mpList.UpdateItem(0, 500);
+var b = mpList.GetItem(0);
+Console.WriteLine(b);
+
