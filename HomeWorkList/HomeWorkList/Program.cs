@@ -17,3 +17,12 @@ Console.WriteLine(mpList[3]);
 mpList[3] = 999;
 Console.WriteLine(mpList[3]);
 Console.WriteLine($"Count: {mpList.Count}");
+
+var secondMpList = new MPList<int>();
+secondMpList.AddItem(333);
+secondMpList.AddItem(444);
+secondMpList.AddItem(555);
+
+var thirdMpList = mpList + secondMpList;
+Console.WriteLine(thirdMpList[0]);
+Console.WriteLine(thirdMpList[thirdMpList.Count]);

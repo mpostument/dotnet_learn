@@ -106,6 +106,27 @@ public class MPList<T> where T : INumber<T>
 
         return last;
     }
+
+    public static MPList<T> operator +(MPList<T> list1, MPList<T> list2)
+    {
+        var result = new MPList<T>();
+
+        var current = list1.first;
+        while (current != null)
+        {
+            result.AddItem(current.value);
+            current = current.next;
+        }
+
+        current = list2.first;
+        while (current != null)
+        {
+            result.AddItem(current.value);
+            current = current.next;
+        }
+
+        return result;
+    }
 }
 
 public class MPListItem<T> where T : INumber<T>
