@@ -16,27 +16,23 @@ public class MPList<T> where T : INumber<T>
             {
                 counter++;
             }
+
             while (last is not null)
             {
                 last = last.next;
                 counter++;
             }
+
             return counter;
         }
     }
 
     public T this[int index]
     {
-        get
-        {
-            return GetItemByIndex(index).value;
-        }
-        set
-        {
-            GetItemByIndex(index).value = value;
-        }
+        get { return GetItemByIndex(index).value; }
+        set { GetItemByIndex(index).value = value; }
     }
-    
+
     public T GetItem(int index)
     {
         return GetItemByIndex(index).value;
@@ -49,18 +45,18 @@ public class MPList<T> where T : INumber<T>
             first = first?.next;
             return;
         }
-        
+
         var i = 0;
         var current = first;
         MPListItem<T> prev = null;
-        
+
         while (current != null && i != index)
         {
             prev = current;
             current = current.next;
             i++;
         }
-        
+
         if (current != null)
         {
             prev.next = current.next;
@@ -79,8 +75,6 @@ public class MPList<T> where T : INumber<T>
         {
             last.next = newItem;
         }
-        
-
     }
 
     public void UpdateItem(int index, T value)
@@ -96,6 +90,7 @@ public class MPList<T> where T : INumber<T>
         {
             last = last.next;
         }
+
         return last;
     }
 
@@ -115,10 +110,10 @@ public class MPList<T> where T : INumber<T>
 
 public class MPListItem<T> where T : INumber<T>
 {
-    public T value;
     public MPListItem<T> next;
+    public T value;
 
-    public MPListItem(T value, MPListItem<T> next): this(value)
+    public MPListItem(T value, MPListItem<T> next) : this(value)
     {
         this.next = next;
     }
