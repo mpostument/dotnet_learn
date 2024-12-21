@@ -10,4 +10,6 @@ mpList.AddItem(300);
 mpList.UpdateItem(0, 500);
 var b = mpList.GetItem(0);
 Console.WriteLine(b);
-
+Console.WriteLine(mpList[3]);
+mpList[3] = 999;
+Console.WriteLine(mpList[3]);

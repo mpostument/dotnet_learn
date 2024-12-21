@@ -3,6 +3,18 @@
 public class MPList
 {
     private MPListItem first;
+
+    public int this[int index]
+    {
+        get
+        {
+            return GetItemByIndex(index).value;
+        }
+        set
+        {
+            GetItemByIndex(index).value = value;
+        }
+    }
     
     public int GetItem(int index)
     {
