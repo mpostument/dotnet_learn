@@ -3,6 +3,9 @@
 var mpList = new MPList();
 mpList.AddItem(100);
 mpList.AddItem(200);
+mpList.AddItem(200);
+mpList.AddItem(200);
+mpList.AddItem(200);
 mpList.DeleteItem(0);
 var i = mpList.GetItem(0);
 Console.WriteLine(i);
@@ -13,3 +16,4 @@ Console.WriteLine(b);
 Console.WriteLine(mpList[3]);
 mpList[3] = 999;
 Console.WriteLine(mpList[3]);
+Console.WriteLine($"Count: {mpList.Count}");

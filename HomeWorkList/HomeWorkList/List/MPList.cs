@@ -4,6 +4,25 @@ public class MPList
 {
     private MPListItem first;
 
+    public int Count
+    {
+        get
+        {
+            var counter = 0;
+            var last = first;
+            if (last is not null)
+            {
+                counter++;
+            }
+            while (last is not null)
+            {
+                last = last.next;
+                counter++;
+            }
+            return counter;
+        }
+    }
+
     public int this[int index]
     {
         get
