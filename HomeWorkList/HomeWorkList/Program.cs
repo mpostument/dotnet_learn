@@ -1,6 +1,6 @@
 ﻿using HomeWorkList;
 
-var mpList = new MPList();
+var mpList = new MPList<int>();
 mpList.AddItem(100);
 mpList.AddItem(200);
 mpList.AddItem(200);

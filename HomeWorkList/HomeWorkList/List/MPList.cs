@@ -1,8 +1,10 @@
-﻿namespace HomeWorkList;
+﻿using System.Numerics;
 
-public class MPList
+namespace HomeWorkList;
+
+public class MPList<T> where T : INumber<T>
 {
-    private MPListItem first;
+    private MPListItem<T> first;
 
     public int Count
     {
@@ -23,7 +25,7 @@ public class MPList
         }
     }
 
-    public int this[int index]
+    public T this[int index]
     {
         get
         {
@@ -35,7 +37,7 @@ public class MPList
         }
     }
     
-    public int GetItem(int index)
+    public T GetItem(int index)
     {
         return GetItemByIndex(index).value;
     }
@@ -50,7 +52,7 @@ public class MPList
         
         var i = 0;
         var current = first;
-        MPListItem prev = null;
+        MPListItem<T> prev = null;
         
         while (current != null && i != index)
         {
@@ -65,9 +67,9 @@ public class MPList
         }
     }
 
-    public void AddItem(int value)
+    public void AddItem(T value)
     {
-        var newItem = new MPListItem(value);
+        var newItem = new MPListItem<T>(value);
         var last = FindLastItem();
         if (last is null)
         {
@@ -81,13 +83,13 @@ public class MPList
 
     }
 
-    public void UpdateItem(int index, int value)
+    public void UpdateItem(int index, T value)
     {
         var item = GetItemByIndex(index);
         item.value = value;
     }
 
-    private MPListItem FindLastItem()
+    private MPListItem<T> FindLastItem()
     {
         var last = first;
         while (last?.next != null)
@@ -97,7 +99,7 @@ public class MPList
         return last;
     }
 
-    private MPListItem GetItemByIndex(int index)
+    private MPListItem<T> GetItemByIndex(int index)
     {
         var i = 0;
         var last = first;
@@ -111,17 +113,17 @@ public class MPList
     }
 }
 
-public class MPListItem
+public class MPListItem<T> where T : INumber<T>
 {
-    public int value;
-    public MPListItem next;
+    public T value;
+    public MPListItem<T> next;
 
-    public MPListItem(int value, MPListItem next): this(value)
+    public MPListItem(T value, MPListItem<T> next): this(value)
     {
         this.next = next;
     }
 
-    public MPListItem(int value)
+    public MPListItem(T value)
     {
         this.value = value;
     }
