@@ -1,8 +1,9 @@
-﻿using System.Numerics;
+﻿using System.Collections;
+using System.Numerics;
 
 namespace HomeWorkList;
 
-public class MPList<T> where T : INumber<T>
+public class MPList<T> : IEnumerable<T> where T : INumber<T>
 {
     private MPListItem<T> first;
 
@@ -31,6 +32,22 @@ public class MPList<T> where T : INumber<T>
     {
         get { return GetItemByIndex(index).value; }
         set { GetItemByIndex(index).value = value; }
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        var last = first;
+        yield return last.value;
+        while (last?.next != null)
+        {
+            last = last.next;
+            yield return last.value;
+        }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 
     public T GetItem(int index)

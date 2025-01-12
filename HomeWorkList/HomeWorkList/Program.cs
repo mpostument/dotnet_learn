@@ -26,3 +26,8 @@ secondMpList.AddItem(555);
 var thirdMpList = mpList + secondMpList;
 Console.WriteLine(thirdMpList[0]);
 Console.WriteLine(thirdMpList[thirdMpList.Count]);
+
+foreach (var item in mpList)
+{
+    Console.WriteLine(item);
+}
