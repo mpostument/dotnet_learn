@@ -51,3 +51,9 @@ void FileNotification(string message)
 UsersManager userManger = new UsersManager();
 userManger.GenerateUsers();
 userManger.FilterUsers((u) => u.Age > 18);
+
+// Task 3
+Alarm alarm = new Alarm();
+alarm.OnAlarm += () => Console.WriteLine("Alarm received");
+alarm.OnAlarm += () => File.AppendAllText("alarm.txt", "Alarm received");
+alarm.Trigger();
