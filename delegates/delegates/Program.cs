@@ -12,6 +12,7 @@ fixErrors.Case8();
 fixErrors.Case9();
 fixErrors.Case10();
 
+// Task1
 NotificationService notificationService;
 Console.WriteLine("Choose notification method: 1 for Console, 2 for File, 3 for Both");
 string choice = Console.ReadLine();
@@ -45,3 +46,8 @@ void FileNotification(string message)
 {
     File.AppendAllText("notifications.txt", message);
 }
+
+// Task 2
+UsersManager userManger = new UsersManager();
+userManger.GenerateUsers();
+userManger.FilterUsers((u) => u.Age > 18);
