@@ -2,19 +2,21 @@
 
 public class Character
 {
-    public int Level { get; set; }
-    public int CurrentXP { get; set; }
-    public int XPForNextLevel { get; set; }
+    public int Level { get; set; } = 1;
+    public int CurrentXp { get; set; } = 0;
+    public int XpForNextLevel { get; set; } = 100;
+    public int Gold { get; set; } = 0;
+    public int Strength { get; set; } = 1;
     public event Action<Character, int> OnLevelUp;
 
     public void AddXP(int amount)
     {
-        CurrentXP += amount;
-        if (CurrentXP >= XPForNextLevel)
+        CurrentXp += amount;
+        while (CurrentXp >= XpForNextLevel)
         {
             Level++;
-            CurrentXP = 0;
-            XPForNextLevel = Level * 100;
+            CurrentXp -= XpForNextLevel;
+            XpForNextLevel = Level * 100;
             OnLevelUp?.Invoke(this, Level);
         }
     }
