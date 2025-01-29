@@ -57,3 +57,8 @@ Alarm alarm = new Alarm();
 alarm.OnAlarm += () => Console.WriteLine("Alarm received");
 alarm.OnAlarm += () => File.AppendAllText("alarm.txt", "Alarm received");
 alarm.Trigger();
+
+// Taks 4
+CurrencyConversionService currencyConverter = new CurrencyConversionService();
+Console.WriteLine(currencyConverter.Convert(100, 73.5f, (a, r) => a / r));
+
