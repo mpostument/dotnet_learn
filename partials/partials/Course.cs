@@ -1,0 +1,1 @@
+public record Course(string CourseName, int Duration);
